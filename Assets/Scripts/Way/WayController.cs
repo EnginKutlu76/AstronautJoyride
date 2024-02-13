@@ -11,7 +11,7 @@ public class WayController : MonoBehaviour
     {
         if (temas.gameObject.tag == "Player" && yolYapildi == false)
         {
-            Vector3 spawnLocation = new Vector3(transform.position.x + 20, 0, 0);
+            Vector3 spawnLocation = new Vector3(transform.position.x + 17.89f, 0, 0);
             int randomIndex = Random.Range(0, way.Length);
             Destroy(gameObject, 1f);
             Instantiate(way[randomIndex], spawnLocation, Quaternion.identity);

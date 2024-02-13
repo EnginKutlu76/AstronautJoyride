@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5.0f; // Karakterin ilerleme hýzý
-    public float maxSpeed = 10.0f; // Maksimum hýz sýnýrý
+    public float moveSpeed = 5.0f; 
+    public float maxSpeed = 10.0f;
     public Image fuel;
     public float timer = 2f;
 
@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
 
     public GameObject panel;
     public float jumpVelocity = 5f;
-    public float jumpHeight = 5f; // Yükselme yüksekliði (mesafe)
     private bool isJumping = false;
     private void Start()
     {
@@ -33,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+      
         CheckSurface();
         float currentSpeed = rb.velocity.x;
         if (currentSpeed < maxSpeed)
@@ -45,7 +45,6 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
             anim.SetBool("isGrounded", false);
         }
-        
 
         if (Input.GetKeyUp(KeyCode.Space) && fuel.fillAmount > 0f)
         {
@@ -64,7 +63,7 @@ public class PlayerController : MonoBehaviour
     }
     void UpdateFuel()
     {
-        fuel.fillAmount += 0.3f;
+        fuel.fillAmount += 0.2f;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
